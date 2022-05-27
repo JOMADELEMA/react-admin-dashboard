@@ -7,8 +7,6 @@ import {
 
 const SparkLine = ({id, height, width, color, data, type, currentColor}) => {
 
-
-  console.log(data);
   return (
     <SparklineComponent
       id={id}
