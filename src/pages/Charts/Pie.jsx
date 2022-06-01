@@ -6,6 +6,8 @@ import {
   PieSeries,
   Inject,
   AccumulationDataLabel,
+  AccumulationTooltip, 
+  AccumulationLegend
 } from "@syncfusion/ej2-react-charts";
 
 import { pieChartData } from "../../data/dummy";
@@ -28,8 +30,10 @@ const Pie = () => {
         width="650px"
         background={currentMode === "Dark" ? "#33373e" : "#fff"}
         enableSmartLabels="true"
+        legendSettings={{visible: true, background: 'white'}}
+        tooltip={{enable: true}}
       >
-        <Inject services={[PieSeries, AccumulationDataLabel]} />
+        <Inject services={[PieSeries, AccumulationDataLabel,AccumulationLegend, AccumulationTooltip]} />
         <AccumulationSeriesCollectionDirective>
           <AccumulationSeriesDirective
             dataSource={pieChartData}
@@ -37,6 +41,7 @@ const Pie = () => {
             dataLabel={{ visible: true, name: "x", position: "Outside" }}
             xName="x"
             yName="y"
+            name="sale"
             type="Pie"
           />
         </AccumulationSeriesCollectionDirective>
