@@ -16,7 +16,7 @@ import { useStateContext } from "../../contexts/ContextProvider";
 const Pie = () => {
   const { currentMode } = useStateContext();
 
-    return (
+  return (
     <div
       className="m-4 md:m-10 mt-24 p-10 bg-white
   dark:bg-secondary-dark-bg rounded-3xl "
@@ -34,7 +34,7 @@ const Pie = () => {
           <AccumulationSeriesDirective
             dataSource={pieChartData}
             pointColorMapping="fill"
-            dataLabel={{ visible: true, name: "x", position: "Outside"}}
+            dataLabel={{ visible: true, name: "x", position: "Outside" }}
             xName="x"
             yName="y"
             type="Pie"

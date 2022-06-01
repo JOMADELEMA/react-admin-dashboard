@@ -21,8 +21,7 @@ import { Header } from "../../components";
 import { useStateContext } from "../../contexts/ContextProvider";
 
 const Bar = () => {
-
-  const {currentMode} = useStateContext();
+  const { currentMode } = useStateContext();
 
   return (
     <div
@@ -35,14 +34,12 @@ const Bar = () => {
         primaryXAxis={barPrimaryXAxis}
         primaryYAxis={barPrimaryYAxis}
         title="Grafico de ..."
-        tooltip={{enable: true}}
+        tooltip={{ enable: true }}
         width="650px"
         height="420px"
         background={currentMode === "Dark" ? "#33373e" : "#fff"}
       >
-        <Inject
-          services={[BarSeries, Legend, Tooltip, Category, DataLabel]}
-        />
+        <Inject services={[BarSeries, Legend, Tooltip, Category, DataLabel]} />
         <SeriesCollectionDirective>
           {barChartData.map((item, index) => (
             <SeriesDirective
