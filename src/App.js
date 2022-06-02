@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+import { Navbar, Footer, Sidebar, ThemeSettings, Cart } from "./components";
 
 import {
   Ecommerce,
@@ -28,7 +28,7 @@ import {
 import { useStateContext } from "./contexts/ContextProvider";
 
 const App = () => {
-  const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode, isCartOpen } = useStateContext();
 
   return (
     <>
@@ -74,6 +74,7 @@ const App = () => {
 
               <div>
                 {themeSettings && <ThemeSettings />}
+                {isCartOpen && <Cart />}
                 <Routes>
                   {/* Dashboard */}
                   <Route path="/" element={<Ecommerce />} />
