@@ -10,6 +10,7 @@ import { useState } from "react/cjs/react.production.min";
 
 const Cart = () => {
   const { currentColor, handleClickClose } = useStateContext();
+  console.log(cartData);
 
   return (
     <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
@@ -28,30 +29,70 @@ const Cart = () => {
         </div>
 
         <div className="flex-col border-t-1 border-color p-4 ml-4">
-          <div id="contenedor-item" className="flex justify-center">
-            <div id="contenedor-imagen" className=" w-1/3"></div>
-            <div>
-              <div id="producto-nombre" className=" text-black text-xl font-semibold">
-                Producto de prueba 1
+          {cartData.map((item, index) => (
+            <div
+              id="contenedor-item"
+              key={item.index}
+              className="flex justify-center"
+            >
+              <div id="contenedor-imagen" className="w-1/3 p-1">
+                <img
+                  className="rounded-xl"
+                  src={item.image}
+                  alt="producto"
+                  style={{ width: "140px", height: "100px" }}
+                />
               </div>
-              <div id="producto-categoria" className="text-gray-600 text-lg font-medium">
-                Producto lacteo
-              </div>
-              <div
-                id="contenedor-precio-botones"
-                className=" flex  justify-between"
-              >
-                <div id="producto-precio" className="text-black font-semibold text-xl">
-                  $15.00
+              <div id="contenedor-informacion" className="w-2/3 p-2">
+                <div
+                  id="producto-nombre"
+                  className=" text-black text-lg font-semibold"
+                >
+                  {item.name}
                 </div>
-                <div id="botones" className=" flex">
-                  <div id="boton-menos">-</div>
-                  <div id="cantidad">0</div>
-                  <div id="boton-mas">+</div>
+                <div
+                  id="producto-categoria"
+                  className="text-gray-600 text-md font-medium"
+                >
+                  {item.category}
+                </div>
+                <div
+                  id="contenedor-precio-botones"
+                  className=" flex  justify-between align-middle"
+                >
+                  <div
+                    id="producto-precio"
+                    className="text-black font-semibold text-xl self-center"
+                  >
+                    {item.price}
+                  </div>
+                  <div
+                    id="botones"
+                    className=" flex border rounded-lg w-2/3 justify-evenly"
+                  >
+                    <div
+                      id="boton-menos"
+                      className="border-r-1 text-2xl py-2 text-center w-full self-center text-red-500"
+                    >
+                      -
+                    </div>
+                    <div
+                      id="cantidad"
+                      className="border-r-1 text-2xl text-center w-full self-center text-green-800"
+                    >
+                      0
+                    </div>
+                    <div
+                      id="boton-mas"
+                      className="text-2xl text-center w-full self-center text-green-600"
+                    >
+                      +
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
         <div className="flex-col border-t-1 border-color p-4 ml-4">
           <div className="flex justify-between m-2">
@@ -60,7 +101,7 @@ const Cart = () => {
           </div>
           <div className="flex justify-between m-2">
             <p className="text-gray-500 font-extralight text-xl">Total</p>
-            <p className="text-blac font-semibold text-xl">$890</p>
+            <p className="text-black font-semibold text-xl">$890</p>
           </div>
         </div>
         <div className="flex justify-center">
