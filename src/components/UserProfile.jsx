@@ -1,89 +1,83 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
-import { BsCheck } from "react-icons/bs";
-import { Tooltip, TooltipComponent } from "@syncfusion/ej2-react-popups";
-import { themeColors } from "../data/dummy";
 
+import { Button } from "../components";
+import { chatData, userProfileData } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
-import { useState } from "react/cjs/react.production.min";
+import { BsCurrencyDollar, BsShield } from "react-icons/bs";
+import { FiCreditCard } from "react-icons/fi";
+import avatar from "../data/avatar.jpg";
 
 const UserProfile = () => {
-  const { setIsCartOpen, isCartOpen, handleClickClose } =
-    useStateContext();
+  const { currentColor } = useStateContext();
 
   return (
-    <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
-      <div className="float-right h-screen dark:text-gray-200 bg-white dark:[#484b52] w-400">
-        <div className="flex justify-between items-center p-4 ml-4">
-          <p className="font-semibold text-lg">Profile</p>
+    <div className="nav-item absolute right-5 md:right-16 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-2/3">
+      <div className="flex justify-between items-center">
+        <div className="flex gap-3">
+          <p className="font-semibold text-lg dark:text-gray-200">
+            User Profile
+          </p>
+        </div>
+        <Button
+          icon={<MdOutlineCancel />}
+          color="rgb(153, 171, 180)"
+          bgHoverColor="light-gray"
+          size="2xl"
+          borderRadius="50%"
+        />
+      </div>
+      <div
+        id="contenedor-info-usuario"
+        className="flex justify-center mt-5"
+      >
+        <div id="contenedor-avatar" className="w-1/3 flex justify-center">
+          <img
+            src={avatar}
+            alt="avatar-usuario"
+            style={{ width: "120px", height: "120px" }}
+            className="rounded-full"
+          />
+        </div>
+        <div id="contenedor-info" className="w-2/3 self-center">
+          <p className="text-black dark:text-gray-200 text-2xl font-semibold">Michael Roberts</p>
+          <p className="text-black dark:text-gray-200 text-lg font-light">Administrator</p>
+          <p className="text-black dark:text-gray-200 text-xl font-semibold">exampleemail@example.com</p>
+        </div>
+      </div>
 
-          <button
-            className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
-            type="button"
-            onClick={() => handleClickClose("cart")}
-            style={{ color: "rgb(152,171,180)", borderRadius: "50%" }}
+      <div className="mt-5 ">
+        {userProfileData?.map((item, index) => (
+          <div
+            key={index}
+            className="flex items-center gap-5 border-b-1 border-color p-3 leading-8 cursor-pointer"
           >
-            <MdOutlineCancel />
-          </button>
-        </div>
-
-        <div className="flex-col border-t-1 border-color p-4 ml-4">
-          <p className="font-semibold text-xl">Items in basket</p>
-
-          <div className="mt-4">
-            <input
-              type="radio"
-              id="light"
-              name="theme"
-              value="Light"
-              className="cursor-pointer"
-              // onChange={setMode}
-              // checked={currentMode === "Light"}
-            />
-            <label htmlFor="light" className="ml-2 text-md cursor-pointer">
-              Light
-            </label>
+            <div
+              className="relative p-3 rounded-lg text-2xl"
+              style={{ backgroundColor: item.iconBg, color: item.iconColor }}
+            >
+              {item.icon}
+              <span
+                style={{ background: item.dotColor }}
+                className="absolute inline-flex rounded-full h-2 w-2 right-0 -top-1"
+              />
+            </div>
+            <div>
+              <p className="font-semibold dark:text-gray-200 ">{item.title}</p>
+              <p className="text-gray-500 dark:text-gray-400 text-sm">
+                {item.desc}
+              </p>
+            </div>
           </div>
-          <div className="mt-4">
-            <input
-              type="radio"
-              id="dark"
-              name="theme"
-              value="Dark"
-              className="cursor-pointer"
-              // onChange={setMode}
-              // checked={currentMode === "Dark"}
-            />
-            <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
-              Dark
-            </label>
-          </div>
-        </div>
-        <div className="flex-col border-t-1 border-color p-4 ml-4">
-          <p className="font-semibold text-xl">Theme Colors</p>
-          <div className="flex gap-3">
-            {themeColors.map((item, index) => (
-              <TooltipComponent
-                key={index}
-                content={item.name}
-                position="TopCenter"
-              >
-                <div className="relative mt-2 cursor-pointer flex gap-5 items-center">
-                  <button
-                    type="button"
-                    className="h-10 w-10 rounded-full cursor-pointer"
-                    style={{ backgroundColor: item.color }}
-                    // onClick={()=>setColor(item.color)}
-                  >
-                    {/* <BsCheck
-                      className={`ml-2 text-2xl text-white 
-                      ${item.color === currentColor ? "block" : "hidden"}`}
-                    /> */}
-                  </button>
-                </div>
-              </TooltipComponent>
-            ))}
-          </div>
+        ))}
+        <div className="mt-5">
+          <Button
+            color="white"
+            bgColor={currentColor}
+            text="Log Out"
+            borderRadius="10px"
+            width="full"
+          />
         </div>
       </div>
     </div>
