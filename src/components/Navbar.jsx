@@ -63,7 +63,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between p-2 md:mx-6 relative">
+      <div className="flex justify-between p-2 md:ml-6 md:mx-6 relative">
         <NavButton
           title="Menu"
           customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}

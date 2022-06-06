@@ -29,7 +29,7 @@ const Sidebar = () => {
     <div
       className="ml-3 h-screen 
     md:overflow-hidden overflow-auto 
-    md:hover:overflow-auto pb-10"
+    md:hover:overflow-auto pb-10 z-50"
     >
       {activeMenu && (
         <>
@@ -42,7 +42,7 @@ const Sidebar = () => {
             >
               <SiShopware /> <span>Shoppy</span>
             </Link>
-            <TooltipComponent content="Menu" position="BottomCenter">
+            <TooltipComponent content="Menu" position="BottomCenter" className="md:hidden">
               <button
                 type="button"
                 onClick={() =>
