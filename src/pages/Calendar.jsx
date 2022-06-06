@@ -17,20 +17,24 @@ import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 import { scheduleData } from "../data/dummy";
 import { Header } from "../components";
 
-import { useStateContext } from "../contexts/ContextProvider";
+import { useStateContext, currentMode } from "../contexts/ContextProvider";
 
 const Calendar = () => {
-  const {currentMode} = useStateContext();
+  const { currentMode } = useStateContext();
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <div
+      className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl"
+      style={{ background: currentMode === "Dark" ? "#33373e" : "#fff" }}
+    >
       <Header category={"App"} title="Calendar" />
       <ScheduleComponent
-      height="650px"
-      eventSettings={{dataSource: scheduleData}}
-      selectedDate={new Date(2021, 0, 10)}
+        height="650px"
+        eventSettings={{ dataSource: scheduleData }}
+        selectedDate={new Date(2021, 0, 10)}
       >
-
-      <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}/>
+        <Inject
+          services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]}
+        />
       </ScheduleComponent>
     </div>
   );

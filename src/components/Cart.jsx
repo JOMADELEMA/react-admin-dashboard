@@ -14,7 +14,7 @@ const Cart = () => {
 
   return (
     <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
-      <div className="float-right h-screen dark:text-gray-200 bg-white dark:[#484b52] w-400">
+      <div className="float-right h-screen dark:text-gray-200 bg-white dark:bg-[#42464D] w-400">
         <div className="flex justify-between items-center p-4 ml-4">
           <p className="font-semibold text-lg">Shopping Cart</p>
 
@@ -46,23 +46,23 @@ const Cart = () => {
               <div id="contenedor-informacion" className="w-2/3 p-2">
                 <div
                   id="producto-nombre"
-                  className=" text-black text-lg font-semibold"
+                  className=" text-black text-lg font-semibold dark:text-gray-300"
                 >
                   {item.name}
                 </div>
                 <div
                   id="producto-categoria"
-                  className="text-gray-600 text-md font-medium"
+                  className="text-gray-600 text-md font-medium dark:text-gray-400"
                 >
                   {item.category}
                 </div>
                 <div
                   id="contenedor-precio-botones"
-                  className=" flex  justify-between align-middle"
+                  className=" flex  justify-between align-middle "
                 >
                   <div
                     id="producto-precio"
-                    className="text-black font-semibold text-xl self-center"
+                    className="text-black font-semibold text-xl self-center dark:text-gray-200"
                   >
                     {item.price}
                   </div>
@@ -72,19 +72,19 @@ const Cart = () => {
                   >
                     <div
                       id="boton-menos"
-                      className="border-r-1 text-2xl py-2 text-center w-full self-center text-red-500"
+                      className="border-r-1 text-2xl py-2 text-center w-full self-center text-red-500 dark:text-red-200"
                     >
                       -
                     </div>
                     <div
                       id="cantidad"
-                      className="border-r-1 text-2xl text-center w-full self-center text-green-800"
+                      className="border-r-1 text-2xl text-center w-full self-center text-green-800 dark:text-green-300"
                     >
                       0
                     </div>
                     <div
                       id="boton-mas"
-                      className="text-2xl text-center w-full self-center text-green-600"
+                      className="text-2xl text-center w-full self-center text-green-600 dark:text-green-200"
                     >
                       +
                     </div>
@@ -96,12 +96,12 @@ const Cart = () => {
         </div>
         <div className="flex-col border-t-1 border-color p-4 ml-4">
           <div className="flex justify-between m-2">
-            <p className="text-gray-500 font-extralight text-xl">Sub Total</p>
-            <p className="text-black font-semibold text-xl">$890</p>
+            <p className="text-gray-500 font-extralight text-xl dark:text-gray-50" >Sub Total</p>
+            <p className="text-black font-semibold text-xl dark:text-gray-200">$890</p>
           </div>
           <div className="flex justify-between m-2">
-            <p className="text-gray-500 font-extralight text-xl">Total</p>
-            <p className="text-black font-semibold text-xl">$890</p>
+            <p className="text-gray-500 font-extralight text-xl dark:text-gray-50">Total</p>
+            <p className="text-black font-semibold text-xl dark:text-gray-200">$890</p>
           </div>
         </div>
         <div className="flex justify-center">
