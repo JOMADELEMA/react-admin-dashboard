@@ -9,7 +9,7 @@ import { FiCreditCard } from "react-icons/fi";
 import avatar from "../data/avatar.jpg";
 
 const UserProfile = () => {
-  const { currentColor } = useStateContext();
+  const { currentColor, handleClickClose } = useStateContext();
 
   return (
     <div className="nav-item absolute right-5 md:right-16 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-2/3">
@@ -19,18 +19,16 @@ const UserProfile = () => {
             User Profile
           </p>
         </div>
-        <Button
-          icon={<MdOutlineCancel />}
-          color="rgb(153, 171, 180)"
-          bgHoverColor="light-gray"
-          size="2xl"
-          borderRadius="50%"
-        />
+        <button
+          className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
+          type="button"
+          onClick={() => handleClickClose("cart")}
+          style={{ color: "rgb(152,171,180)", borderRadius: "50%" }}
+        >
+          <MdOutlineCancel />
+        </button>
       </div>
-      <div
-        id="contenedor-info-usuario"
-        className="flex justify-center mt-5"
-      >
+      <div id="contenedor-info-usuario" className="flex justify-center mt-5">
         <div id="contenedor-avatar" className="w-1/3 flex justify-center">
           <img
             src={avatar}
@@ -40,9 +38,15 @@ const UserProfile = () => {
           />
         </div>
         <div id="contenedor-info" className="w-2/3 self-center">
-          <p className="text-black dark:text-gray-200 text-2xl font-semibold">Michael Roberts</p>
-          <p className="text-black dark:text-gray-200 text-lg font-light">Administrator</p>
-          <p className="text-black dark:text-gray-200 text-xl font-semibold">exampleemail@example.com</p>
+          <p className="text-black dark:text-gray-200 text-2xl font-semibold">
+            Michael Roberts
+          </p>
+          <p className="text-black dark:text-gray-200 text-lg font-light">
+            Administrator
+          </p>
+          <p className="text-black dark:text-gray-200 text-xl font-semibold">
+            exampleemail@example.com
+          </p>
         </div>
       </div>
 
